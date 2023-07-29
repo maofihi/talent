@@ -1,0 +1,14 @@
+create Ansible control machine
+install Ansible: Make sure Ansible is installed on your control machine.
+You can install it using package managers like apt, yum, or pip, depending on your operating system.
+Generate SSH Keys: On the Ansible control machine, generate SSH keys using the ssh-keygen command. 
+This will create a public key (id_rsa.pub) and a private key (id_rsa) in the ~/.ssh/ directory.
+ssh-copy-id user@target_server_ip
+ssh user@target_server_ip //testing
+Inventory File: Create an inventory file (e.g., hosts.yml)
+[linux_servers]
+target_server_ip1
+target_server_ip2
+# Add more target servers here if needed
+
+ansible -i hosts.yml linux_servers -m ping //test
